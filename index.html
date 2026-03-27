@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日一页 | 永恒日记</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #1a0f2e 0%, #0a0514 100%);
+            color: #e0d4ff;
+            font-family: system-ui, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .moon {
+            font-size: 6rem;
+            animation: glow 6s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes glow {
+            0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 40px #c4b5fd); }
+            50% { opacity: 1; filter: drop-shadow(0 0 60px #a78bfa); }
+        }
+        
+        .progress-container {
+            width: 280px;
+            height: 4px;
+            background: rgba(167, 139, 250, 0.15);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin: 30px auto;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, #a78bfa, #c4b5fd, #e0d4ff);
+            width: 0%;
+            transition: width 4.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 20px #c4b5fd;
+        }
+        
+        .text {
+            font-size: 1.35rem;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="moon">☾</div>
+        
+        <h1 class="text-4xl font-light tracking-widest mb-2">今日一页</h1>
+        <p class="text-violet-300 text-lg mb-8">把今天写进 Arweave 的永恒</p>
+        
+        <div class="text">正在连接永恒空间...</div>
+        
+        <!-- 炫酷进度条 -->
+        <div class="progress-container">
+            <div id="progress" class="progress-bar"></div>
+        </div>
+        
+        <p class="text-xs text-violet-400/70 mt-12">即将跳转至今日日记</p>
+    </div>
+
+    <script>
+        // 你的 Arweave 永恒日记地址
+        const targetUrl = "https://qfupt5bsanp3yamuvs3wwu736k3bylqnfvvn7sy2kcj45xodcdfq.arweave.net/gWj59DIDX7wBlKy3a1P78rYcLg0tat_LGlCTzt3DEMs/";
+
+        // 页面加载后开始进度条动画 + 自动跳转
+        window.onload = function() {
+            const progressBar = document.getElementById('progress');
+            
+            // 启动柔和的进度条动画
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 100);
+
+            // 5秒后自动跳转（可自行修改时间）
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 4800);
+        };
+    </script>
+</body>
+</html>
